@@ -17,7 +17,7 @@ export interface Talk {
     status: TalkStatus;
     abstract: string;
     description: string;
-    speakerIds: string[];
+    speakers: string[];
     level: TalkLevel;
     category: string;
     type: string;
