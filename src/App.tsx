@@ -1,14 +1,16 @@
+import { Provider } from 'mobx-react';
 import React from 'react';
+import { AuthStore } from './auth';
+import { AuthPanel } from './auth/auth-panel';
+
+const store = new AuthStore();
 
 class App extends React.Component {
     public render() {
         return (
-            <div className="App">
-                <p className="App-intro">
-                    To get started, edit <code>src/App.tsx</code> and save to
-                    reload.
-                </p>
-            </div>
+            <Provider store={store}>
+                <AuthPanel />
+            </Provider>
         );
     }
 }

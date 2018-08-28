@@ -1,31 +1,37 @@
 {
-  "name": "tmp",
-  "version": "0.1.0",
-  "private": true,
-  "dependencies": {
-    "react": "^16.4.2",
-    "react-dom": "^16.4.2",
-    "react-scripts-ts": "2.17.0"
-  },
-  "scripts": {
-    "start": "react-scripts-ts start",
-    "build": "react-scripts-ts build",
-    "test": "react-scripts-ts test --env=jsdom",
-    "eject": "react-scripts-ts eject",
-    "prettify": "prettier --write './src/**/*.{ts,tsx}'"
-  },
-  "devDependencies": {
-    "@types/jest": "^23.3.1",
-    "@types/node": "^10.9.2",
-    "@types/react": "^16.4.11",
-    "@types/react-dom": "^16.0.7",
-    "husky": "^1.0.0-rc.13",
-    "prettier": "^1.14.2",
-    "typescript": "^3.0.1"
-  },
-  "husky": {
-    "hooks": {
-      "pre-commit": "yarn prettify"
+    "name": "tmp",
+    "version": "0.1.0",
+    "private": true,
+    "dependencies": {
+        "@material-ui/core": "^3.0.0",
+        "firebase": "^5.4.1",
+        "mobx": "^5.1.0",
+        "mobx-react": "^5.2.5",
+        "mobx-state-tree": "^3.2.3",
+        "react": "^16.4.2",
+        "react-dom": "^16.4.2",
+        "react-scripts-ts": "2.17.0"
+    },
+    "scripts": {
+        "start": "react-scripts-ts start",
+        "build": "react-scripts-ts build",
+        "test": "react-scripts-ts test --env=jsdom",
+        "eject": "react-scripts-ts eject",
+        "prettify": "prettier --config ./.prettierrc --write './src/**/*.{ts,tsx}'"
+    },
+    "devDependencies": {
+        "@firebase/app-types": "^0.3.2",
+        "@types/jest": "^23.3.1",
+        "@types/node": "^10.9.2",
+        "@types/react": "^16.4.11",
+        "@types/react-dom": "^16.0.7",
+        "husky": "^1.0.0-rc.13",
+        "prettier": "^1.14.2",
+        "typescript": "^3.0.1"
+    },
+    "husky": {
+        "hooks": {
+            "pre-commit": "yarn prettify"
+        }
     }
-  }
 }

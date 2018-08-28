@@ -1,17 +1,19 @@
 export enum EventStatus {
     open,
-    review,
+    inReview,
     closed,
 }
 
 export interface Event {
     id: string;
+    name: string;
     title: string;
     description: string;
     group: string;
-    startDate: Date;
-    endDate: Date;
+    startTime: Date;
+    endTime: Date;
     venue: string;
+    googleMapsUrl: string;
     status: EventStatus;
     email: string;
     phone: string;
