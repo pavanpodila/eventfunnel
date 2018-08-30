@@ -1,24 +1,25 @@
-enum TalkLevel {
+enum ActivityLevel {
     beginner = 'beginner',
     intermediate = 'intermediate',
     advanced = 'advanced',
 }
 
-enum TalkStatus {
+enum ActivityStatus {
     submitted = 'submitted',
     inReview = 'inReview',
     accepted = 'accepted',
     deferred = 'deferred',
 }
 
-export interface Talk {
+export interface Activity {
     id: string;
+    eventId: string;
     title: string;
-    status: TalkStatus;
+    status: ActivityStatus;
     abstract: string;
     description: string;
-    speakers: string[];
-    level: TalkLevel;
+    speakerId: string;
+    level: ActivityLevel;
     category: string;
     type: string;
     durationInMinutes: number;

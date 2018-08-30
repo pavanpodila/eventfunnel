@@ -19,6 +19,10 @@ export function signInAnonymously() {
     return app.auth().signInAnonymously();
 }
 
+export function signOut() {
+    return app.auth().signOut();
+}
+
 export const subscribeToAuthChange = (
     callback: (user?: firebase.User) => void,
 ) => {

@@ -9,7 +9,7 @@ export interface Event {
     name: string;
     title: string;
     description: string;
-    group: string;
+    groupId: string;
     startTime: Date;
     endTime: Date;
     venue: string;
@@ -18,5 +18,5 @@ export interface Event {
     email: string;
     phone: string;
 
-    talks: string[];
+    activities: string[];
 }

@@ -3,7 +3,7 @@
     "version": "0.1.0",
     "private": true,
     "dependencies": {
-        "@material-ui/core": "^3.0.0",
+        "antd": "^3.8.4",
         "firebase": "^5.4.1",
         "mobx": "^5.1.0",
         "mobx-react": "^5.2.5",

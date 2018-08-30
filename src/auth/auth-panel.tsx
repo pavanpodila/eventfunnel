@@ -1,9 +1,9 @@
-import Button from '@material-ui/core/Button/Button';
-import Typography from '@material-ui/core/Typography/Typography';
 import { inject, observer } from 'mobx-react';
 import * as React from 'react';
 import { Fragment } from 'react';
 import { AuthStore } from './index';
+import Button from 'antd/es/button/button';
+import { Icon } from 'antd';
 
 interface Props {
     store?: AuthStore;
@@ -20,23 +20,41 @@ export class AuthPanel extends React.Component<Props> {
                 {isReady ? (
                     <div>
                         {isSignedIn ? (
-                            <Typography>
+                            <div>
                                 {`Signed In as ${user!.displayName}`}
-                            </Typography>
+                                <Button onClick={store!.signOut}>
+                                    Sign Out
+                                </Button>
+                            </div>
                         ) : (
-                            <Button onClick={this.onSignIn}>
-                                Sign In with Google
-                            </Button>
+                            <Fragment>
+                                <Button
+                                    onClick={store!.signInWithGoogle}
+                                    style={{
+                                        backgroundColor: '#e20000',
+                                        color: 'white',
+                                    }}
+                                >
+                                    <Icon type={'google'} />
+                                    Sign In with Google
+                                </Button>
+                                <Button
+                                    onClick={store!.signInWithTwitter}
+                                    style={{
+                                        backgroundColor: '#4ba1e2',
+                                        color: 'white',
+                                    }}
+                                >
+                                    <Icon type={'twitter'} />
+                                    Sign In with Twitter
+                                </Button>
+                            </Fragment>
                         )}
                     </div>
                 ) : (
-                    <Typography variant={'body1'}>Loading...</Typography>
+                    <div>Loading...</div>
                 )}
             </Fragment>
         );
     }
-
-    private onSignIn = () => {
-        this.props.store!.signInWithGoogle();
-    };
 }

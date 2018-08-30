@@ -3,20 +3,17 @@ import { computed, observable, runInAction } from 'mobx';
 import {
     signInWithGoogle,
     signInWithTwitter,
+    signOut,
     subscribeToAuthChange,
 } from '../core/firebase/auth';
 
 export class AuthStore {
-    @observable public isReady = false;
-    @observable public user?: firebase.User;
-
-    public signInWithGoogle = signInWithGoogle;
-    public signInWithTwitter = signInWithTwitter;
-
     @computed
     public get isSignedIn() {
         return !!this.user;
     }
+    @observable public isReady = false;
+    @observable public user?: firebase.User;
 
     constructor() {
         this.isReady = false;
@@ -26,5 +23,29 @@ export class AuthStore {
                 this.isReady = true;
             });
         });
+    }
+
+    public signInWithTwitter = async () => {
+        try {
+            await signInWithTwitter();
+        } catch (e) {
+            console.log(e);
+        }
+    };
+
+    public signInWithGoogle = async () => {
+        try {
+            await signInWithGoogle();
+        } catch (e) {
+            console.log(e);
+        }
+    };
+
+    public async signOut() {
+        try {
+            await signOut();
+        } catch (e) {
+            // Ignore
+        }
     }
 }
