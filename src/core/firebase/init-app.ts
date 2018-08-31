@@ -1,12 +1,12 @@
 import { initializeApp } from 'firebase';
 
 const config = {
-    apiKey: 'AIzaSyA7Xp5E-NXkfiZiZOUifTEl-eSu_-sXNk0',
-    authDomain: 'eventfunnel.firebaseapp.com',
-    databaseURL: 'https://eventfunnel.firebaseio.com',
-    messagingSenderId: '646136762676',
-    projectId: 'eventfunnel',
-    storageBucket: 'eventfunnel.appspot.com',
+    apiKey: process.env.REACT_APP_apiKey,
+    authDomain: process.env.REACT_APP_authDomain,
+    databaseURL: process.env.REACT_APP_databaseURL,
+    messagingSenderId: process.env.REACT_APP_messagingSenderId,
+    projectId: process.env.REACT_APP_projectId,
+    storageBucket: process.env.REACT_APP_storageBucket,
 };
 
 export const app = initializeApp(config);

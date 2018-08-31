@@ -12,8 +12,15 @@ export class AuthStore {
     public get isSignedIn() {
         return !!this.user;
     }
-    @observable public isReady = false;
-    @observable public user?: firebase.User;
+
+    @observable
+    public isReady = false;
+
+    @observable
+    public isSigningIn = false;
+
+    @observable
+    public user?: firebase.User;
 
     constructor() {
         this.isReady = false;
@@ -26,19 +33,11 @@ export class AuthStore {
     }
 
     public signInWithTwitter = async () => {
-        try {
-            await signInWithTwitter();
-        } catch (e) {
-            console.log(e);
-        }
+        this.signIn(signInWithTwitter);
     };
 
-    public signInWithGoogle = async () => {
-        try {
-            await signInWithGoogle();
-        } catch (e) {
-            console.log(e);
-        }
+    public signInWithGoogle = () => {
+        this.signIn(signInWithGoogle);
     };
 
     public async signOut() {
@@ -46,6 +45,17 @@ export class AuthStore {
             await signOut();
         } catch (e) {
             // Ignore
+        }
+    }
+
+    private async signIn(fn: () => Promise<any>) {
+        try {
+            this.isSigningIn = true;
+            await fn();
+        } catch (e) {
+            console.log(e);
+        } finally {
+            this.isSigningIn = false;
         }
     }
 }

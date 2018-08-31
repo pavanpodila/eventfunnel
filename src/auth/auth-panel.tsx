@@ -1,7 +1,7 @@
 import { inject, observer } from 'mobx-react';
 import * as React from 'react';
 import { Fragment } from 'react';
-import { AuthStore } from './index';
+import { AuthStore } from './auth.store';
 import Button from 'antd/es/button/button';
 import { Icon } from 'antd';
 
@@ -30,20 +30,14 @@ export class AuthPanel extends React.Component<Props> {
                             <Fragment>
                                 <Button
                                     onClick={store!.signInWithGoogle}
-                                    style={{
-                                        backgroundColor: '#e20000',
-                                        color: 'white',
-                                    }}
+                                    disabled={store!.isSigningIn}
                                 >
                                     <Icon type={'google'} />
                                     Sign In with Google
                                 </Button>
                                 <Button
                                     onClick={store!.signInWithTwitter}
-                                    style={{
-                                        backgroundColor: '#4ba1e2',
-                                        color: 'white',
-                                    }}
+                                    disabled={store!.isSigningIn}
                                 >
                                     <Icon type={'twitter'} />
                                     Sign In with Twitter
